@@ -28,7 +28,7 @@ const New = ({ inputs }) => {
         ...info,
         img: url,
       };
-      await axios.post("/auth/register", newUser);
+      await axios.post("https://thela-bookings-backend.onrender.com/api/auth/register", newUser);
     } catch (err) {
       console.log(err);
     }

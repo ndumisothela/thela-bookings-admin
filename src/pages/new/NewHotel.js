@@ -40,7 +40,7 @@ const handleClick = async e =>{
        }))
        const newHotel = {
         ...info,rooms,photos:list
-    };await axios.post("https://thela-bookings-backend.onrender.com//hotels", newHotel)
+    };await axios.post("https://thela-bookings-backend.onrender.com/api/hotels", newHotel)
 
     }catch(err){}
 }

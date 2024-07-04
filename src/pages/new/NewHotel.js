@@ -13,7 +13,7 @@ const NewHotel = () => {
   const [info,setInfo]=useState({});
   const [rooms,setRooms] = useState([])
 
-  const {data, loading, error} = useFetch("/rooms")
+  const {data, loading, error} = useFetch("https://thela-bookings-backend.onrender.com/rooms")
 
   const handleChange =(e)=>{
     setInfo((prev)=>({...prev, [e.target.id]: e.target.value}))
@@ -40,7 +40,7 @@ const handleClick = async e =>{
        }))
        const newHotel = {
         ...info,rooms,photos:list
-    };await axios.post("/hotels", newHotel)
+    };await axios.post("https://thela-bookings-backend.onrender.com//hotels", newHotel)
 
     }catch(err){}
 }

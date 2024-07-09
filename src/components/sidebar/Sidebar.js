@@ -18,7 +18,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Sidebar = () => {
 
-  const { dispatch } = useContext(DarkModeContext, AuthContext);
+  const { user, dispatch } = useContext(DarkModeContext, AuthContext);
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" }); // Dispatch the LOGOUT action to update the state
@@ -26,7 +26,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/home" style={{ textDecoration: "none" }}>
           <span className="logo">Thela-admin</span>
         </Link>
       </div>
@@ -35,8 +35,9 @@ const Sidebar = () => {
         <ul>
           <p className="title">MAIN</p>
           <li>
+            <Link to="/home" style={{ textDecoration: "none" }}>
             <DashboardIcon className="icon" />
-            <span>Dashboard</span>
+            <span>Dashboard</span></Link>
           </li>
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
@@ -86,7 +87,13 @@ const Sidebar = () => {
           <p className="title">USER</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
+            {!user ? (
             <span>Profile</span>
+            ):(
+             
+              <span>{user.username}</span> 
+)}
+
           </li>
           <li><Link to="/login" style={{textDecoration:"none"}}>
             <ExitToAppIcon className="icon" />

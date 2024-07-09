@@ -45,7 +45,7 @@ const Login = () => {
       if(res.data.isAdmin){
         // Dispatching LOGIN_SUCCESS action with user details if login is successful and user is admin
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-        navigate("/"); // Navigating to the home page
+        navigate("/home"); // Navigating to the home page
       } else {
         // Dispatching LOGIN_FAILURE action if user is not admin
         dispatch({ type: "LOGIN_FAILURE", payload: { message: "You are not allowed!" } });
